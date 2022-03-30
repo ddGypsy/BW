@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hjl.Mapper.DataTestMapper">
+  <resultMap id="BaseResultMap" type="com.hjl.Bean.DataTest">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, pwd, create_time
+  </sql>
+  <select id="queryAll" resultType="com.hjl.Bean.DataTest">
+    select id, name,pwd,create_time
+    from data_test where id > 0;
+  </select>
+  <select id="selectAll" parameterType="java.lang.Long" resultType="com.hjl.Bean.DataTest">
+    select id, name,pwd,create_time
+    from data_test where id > #{index} limit #{limit};
+  </select>
+  <select id="selectAllN" parameterType="java.lang.Long" resultType="com.hjl.Bean.DataTest">
+    select id, name,pwd,create_time
+    from data_test where id > 0
+    limit #{index},#{limit};
+  </select>
+
+  <select id="selectRemainder" parameterType="java.lang.Long" resultType="com.hjl.Bean.DataTest">
+    select id, name,pwd,create_time
+    from data_test
+    ORDER BY id DESC
+    limit #{limit};
+  </select>
+
+  <select id="getCount" resultType="java.lang.Long">
+    SELECT COUNT(id) from data_test;
+  </select>
+
+</mapper>

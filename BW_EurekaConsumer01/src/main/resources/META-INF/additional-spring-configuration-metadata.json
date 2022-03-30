@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "hystrix.command.defalut.execution.isolation.thread.timeoutInMilliseconds",
+      "type": "java.lang.String",
+      "description": "Description for hystrix.command.defalut.execution.isolation.thread.timeoutInMilliseconds."
+  }
+] }
